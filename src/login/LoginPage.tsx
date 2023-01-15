@@ -10,7 +10,14 @@ interface LoginPageProps {
 interface LoginPageState {
   username: string;
   password: string;
+  errors: {
+    username: string | undefined;
+    password: string | undefined;
+  };
 }
+
+const userNameError = "Please enter a username";
+const passwordError = "please enter a password";
 
 class LoginPageInternal extends React.Component<
   LoginPageProps,
@@ -18,7 +25,14 @@ class LoginPageInternal extends React.Component<
 > {
   constructor(props: LoginPageProps) {
     super(props);
-    this.state = { username: "", password: "" };
+    this.state = {
+      username: "",
+      password: "",
+      errors: {
+        username: userNameError,
+        password: passwordError,
+      },
+    };
   }
   handleSubmit() {
     this.props.navigate("/dashboard");
@@ -37,11 +51,16 @@ class LoginPageInternal extends React.Component<
             <input
               type="username"
               name="username"
-              placeholder="Username"
+              placeholder="Username (*)"
               onChange={(e) =>
                 this.setState((state) => ({
                   ...state,
                   username: e.target.value,
+                  errors: {
+                    ...state.errors,
+                    username:
+                      e.target.value.length > 0 ? undefined : userNameError,
+                  },
                 }))
               }
             />
@@ -50,16 +69,27 @@ class LoginPageInternal extends React.Component<
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Password (*)"
               onChange={(e) =>
                 this.setState((state) => ({
                   ...state,
                   password: e.target.value,
+                  errors: {
+                    ...state.errors,
+                    password:
+                      e.target.value.length > 0 ? undefined : passwordError,
+                  },
                 }))
               }
             />
           </label>
-          <input type="submit" value="Log in" />
+          <input
+            disabled={
+              !!this.state.errors.password || !!this.state.errors.username
+            }
+            type="submit"
+            value="Log in"
+          />
         </form>
       </section>
     );

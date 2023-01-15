@@ -25,13 +25,18 @@
       outline: 0;
       box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
     }
+  }
 
-    &[type="submit"] {
-      background-color: #00b9ff;
-      color: #fff;
-      border: none;
-      padding-left: 5px;
-      padding-right: 5px;
+  input[type="submit"] {
+    background-color: #00b9ff;
+    color: #fff;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    &:disabled {
+      background-color: lightgrey;
+      color: #666666;
     }
   }
 
