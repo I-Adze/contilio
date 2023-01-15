@@ -19,6 +19,16 @@ interface LoginPageState {
 const userNameError = "Please enter a username";
 const passwordError = "please enter a password";
 
+/**
+ * The login page is fairly simple, with a disabled button instead of any fancy validation, as per
+ * the requirements.
+ *
+ * I considered implementing a floating placeholder, but instead decided to
+ * stick with the style used in the demo booking form on https://www.contilio.com/
+ *
+ * I also considered using a form library but the page didn't need to be complex, and candidly
+ * I'm not familiar with any form libraries that are still supporting/aimed at class components.
+ */
 class LoginPageInternal extends React.Component<
   LoginPageProps,
   LoginPageState

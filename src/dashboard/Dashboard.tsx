@@ -23,6 +23,18 @@ interface DashboardState {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
+/**
+ * I used chartjs for the bar chart as it's a chart library I've heard of and seemed simple enough to make
+ * responsive, and just a vanilla HTML table for the tabular structure as the requirements were basic enough.
+ *
+ * The page will flip to a vertical layout at 500px, since the components within it are smaller than 1000px
+ * and don't scale with screen size as per the requirements, the max width doesn't affect much but is in the
+ * css nonetheless.
+ *
+ * The slider is straight out of the box and was tested on firefox and chrome. If there were more requirements
+ * I may have implemented custom styling etc for it, but that seemed out of scope as it fits well enough.
+ *
+ */
 export class Dashboard extends React.Component<{}, DashboardState> {
   state = {
     values: [],
