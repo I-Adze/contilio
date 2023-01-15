@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import styles from "./Dashboard.module.scss";
 
 interface Value {
   title: string;
@@ -55,10 +56,10 @@ export class Dashboard extends React.Component<{}, DashboardState> {
 
   render() {
     return this.state.selectedValue ? (
-      <>
-        <section>
-          <section>
-            <h2>{this.state.selectedValue.title}</h2>
+      <section className={styles.page}>
+        <h2>{this.state.selectedValue.title}</h2>
+        <section className={styles.displays}>
+          <section className={styles.table}>
             <table>
               <thead>
                 <tr>
@@ -78,7 +79,7 @@ export class Dashboard extends React.Component<{}, DashboardState> {
               </tbody>
             </table>
           </section>
-          <section>
+          <section className={styles.chart}>
             <Bar
               options={{
                 responsive: true,
@@ -102,7 +103,7 @@ export class Dashboard extends React.Component<{}, DashboardState> {
             }
           ></input>
         </section>
-      </>
+      </section>
     ) : (
       <></>
     );
