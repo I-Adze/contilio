@@ -23,17 +23,15 @@ class LoginPageInternal extends React.Component<
   LoginPageProps,
   LoginPageState
 > {
-  constructor(props: LoginPageProps) {
-    super(props);
-    this.state = {
-      username: "",
-      password: "",
-      errors: {
-        username: userNameError,
-        password: passwordError,
-      },
-    };
-  }
+  state = {
+    username: "",
+    password: "",
+    errors: {
+      username: userNameError,
+      password: passwordError,
+    },
+  };
+
   handleSubmit() {
     this.props.navigate("/dashboard");
   }
