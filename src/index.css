@@ -1,0 +1,26 @@
+body {
+  background-color: #efefef;
+  font-family: "Montserrat";
+}
+
+html,
+body,
+main,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: range(50, 350);
+  src: url(./resources/Montserrat-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: range(50, 350);
+  font-style: "italic";
+  src: url(./resources/Montserrat-Italic-VariableFont_wght.ttf);
+}
